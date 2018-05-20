@@ -89,15 +89,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Kandidat.svc" />
     <Content Include="Mahasiswa.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IKandidat.cs" />
     <Compile Include="IMahasiswa.cs" />
+    <Compile Include="Kandidat.svc.cs">
+      <DependentUpon>Kandidat.svc</DependentUpon>
+    </Compile>
+    <Compile Include="KandidatInfo.cs" />
     <Compile Include="koneksi.cs" />
     <Compile Include="Mahasiswa.svc.cs">
       <DependentUpon>Mahasiswa.svc</DependentUpon>
     </Compile>
+    <Compile Include="MahasiswaInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
