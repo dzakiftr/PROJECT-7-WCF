@@ -1,0 +1,36 @@
+﻿@model Web_Client.Models.UserLogin
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="container-fluid">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group row">
+            <div class="col-sm-4">
+                @Html.LabelFor(a => a.id)
+            </div>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(a => a.id)
+            </div>            
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                @Html.LabelFor(a => a.password)
+            </div>
+            <div class="col-sm-10">
+                @Html.EditorFor(a => a.password)
+            </div>   
+            <div class="col-sm-10">
+                @ViewBag.Message
+            </div>    
+        </div>
+        <div class="form-group row">
+            <input type="submit" class="btn-dark" value="Login" />
+        </div>
+    }
+ 
+</div>
+

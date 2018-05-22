@@ -12,6 +12,6 @@ namespace WCF_Server
     public interface IKandidat
     {
         [OperationContract]
-
+        List<KandidatInfo> ShowKandidat();
     }
 }
