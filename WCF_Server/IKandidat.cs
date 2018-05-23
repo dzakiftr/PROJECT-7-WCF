@@ -13,5 +13,11 @@ namespace WCF_Server
     {
         [OperationContract]
         List<KandidatInfo> ShowKandidat();
+
+        [OperationContract]
+        bool validateUser(string ID);
+
+        [OperationContract]
+        int doVote(VoteInfo suara);
     }
 }

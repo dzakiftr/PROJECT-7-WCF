@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace WCF_Server
 {
@@ -12,6 +13,8 @@ namespace WCF_Server
     // NOTE: In order to launch WCF Test Client for testing this service, please select Kandidat.svc or Kandidat.svc.cs at the Solution Explorer and start debugging.
     public class Kandidat : IKandidat
     {
+        string date = DateTime.Now.ToString("YYYY-MM-DD");
+
         public List<KandidatInfo> ShowKandidat()
         {
             koneksi con = new koneksi();
@@ -61,6 +64,59 @@ namespace WCF_Server
                 sqcon.Close();
             }
             return lisKad;
+        }
+
+        public bool validateUser(string ID)
+        {
+            koneksi con = new koneksi();
+            SqlConnection sqcon = con.connection();
+
+            using (sqcon)
+            {
+                sqcon.Open();
+                string com = "select COUNT (*) from Pemilihan where NIM = @NIM";
+                SqlCommand sqcomm = new SqlCommand(com, sqcon);
+                int result = 0;
+                using (sqcomm)
+                {
+                    sqcomm.Parameters.AddWithValue("@NIM", ID);
+
+                    result = (int)sqcomm.ExecuteScalar();
+                    if (result > 0)
+                        return true;
+                    else
+                        return false;
+                }
+                sqcon.Close();
+            }
+        }
+
+        public int doVote(VoteInfo suara)
+        {
+            koneksi con = new koneksi();
+            SqlConnection sqcon = con.connection();
+            int result = 0;
+
+            var d = DateTime.ParseExact(date, "YYYY-MM-DD", CultureInfo.InvariantCulture);
+
+            using (sqcon)
+            {
+                sqcon.Open();
+
+                string com = "INSERT INTO Pemilihan VALUES(@nim, @nomor, @tgl)";
+                SqlCommand sqcomm = new SqlCommand(com, sqcon);
+
+                using (sqcomm)
+                {
+                    sqcomm.Parameters.AddWithValue("@nomor", suara.Nomor_Urut);
+                    sqcomm.Parameters.AddWithValue("@nim", suara.NIM);
+                    sqcomm.Parameters.AddWithValue("@tgl", d);
+
+                    result = sqcomm.ExecuteNonQuery();
+                }
+                sqcon.Close();
+            }
+            return result;
         }
     }
 }

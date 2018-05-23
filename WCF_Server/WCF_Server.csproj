@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="MahasiswaInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoteInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
