@@ -28,34 +28,35 @@ namespace WCF_Server
                 using (sqlcomm)
                 {
                     SqlDataReader dr = sqlcomm.ExecuteReader();
-                    dr.Read();
-                    KandidatInfo kd = new KandidatInfo();
-                    kd.nomorUrut = dr.GetInt32(0);
-                    kd.nama = dr.GetString(1);
-                    kd.jurusan = dr.GetString(2);
-                    kd.prodi = dr.GetString(3);
-                    kd.visi = (dr["Visi"]).ToString();
-                    kd.misi = (dr["Misi"]).ToString();
-                    if (!Convert.IsDBNull(dr["Foto"]))
-                    {
-                        kd.picture = (byte[])(dr["Foto"]);
-                    }
-                    
-                    lisKad.Add(kd);
-
-                    //while (dr.Read())
+                    //kd.nomorUrut = dr.GetInt32(0);
+                    //kd.nama = dr.GetString(1);
+                    //kd.jurusan = dr.GetString(2);
+                    //kd.prodi = dr.GetString(3);
+                    //kd.visi = (dr["Visi"]).ToString();
+                    //kd.misi = (dr["Misi"]).ToString();
+                    //if (!Convert.IsDBNull(dr["Foto"]))
                     //{
-                    //    KandidatInfo kd = new KandidatInfo();
-                    //    kd.nomorUrut = dr.GetInt32(0);
-                    //    kd.nama = dr.GetString(1);
-                    //    kd.jurusan = dr.GetString(2);
-                    //    kd.prodi = dr.GetString(3);
-                    //    kd.visi = dr.GetString(4);
-                    //    kd.misi = dr.GetString(5);
                     //    kd.picture = (byte[])(dr["Foto"]);
-
-                    //    lisKad.Add(kd);
                     //}
+
+                    //lisKad.Add(kd);
+
+                    while (dr.Read())
+                    {
+                        KandidatInfo kd = new KandidatInfo();
+                        kd.nomorUrut = dr.GetInt32(0);
+                        kd.nama = dr.GetString(1);
+                        kd.jurusan = dr.GetString(2);
+                        kd.prodi = dr.GetString(3);
+                        kd.visi = (dr["Visi"]).ToString();
+                        kd.misi = (dr["Misi"]).ToString();
+                        if (!Convert.IsDBNull(dr["Foto"]))
+                        {
+                            kd.picture = (byte[])(dr["Foto"]);
+                        }
+
+                        lisKad.Add(kd);
+                    }
                 }
                 sqcon.Close();
             }
