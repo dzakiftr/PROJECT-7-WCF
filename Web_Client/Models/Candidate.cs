@@ -7,8 +7,17 @@ namespace Web_Client.Models
 {
     public class Candidate
     {
-        public string Nomor_urut { get; set; }
+        public int Nomor_urut { get; set; }
 
         public string Nama { get; set; }
+
+        public string Jurusan { get; set; }
+
+        public string Prodi { get; set; }
+
+        public string Visi { get; set; }
+
+        public string Misi { get; set; }
+
     }
 }

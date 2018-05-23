@@ -1,11 +1,22 @@
-﻿@{
+﻿@model IEnumerable<Web_Client.Models.Candidate>
+
+@{
     ViewBag.Title = "PilkaBEM 2018";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
-<div class="jumbotron-fluid" style="align-items: center; background-color: aquamarine;">
+<div class="jumbotron-fluid" style="align-items: center; background-color: darkblue;">
     <br />
-    <div class="d-flex justify-content-md-center">
-        <h2>Index</h2>
+    <div class="container" style="align-items: center; text-align: center;">
+        <br />
+        <h2 style="color: aliceblue">Pemilihan Ketua BEM 2018</h2>
+        <br />
+        <div class="row">
+            @foreach (var x in Model)
+            {
+                @Html.Partial("_ListCandidate", x)
+            }
+        </div>
+        <br />
     </div>
 
 </div>

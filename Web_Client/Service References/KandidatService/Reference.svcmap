@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="717d8ce3-01e3-4da3-a11b-547579ea2d8d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50363/Kandidat.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Kandidat.xsd" MetadataType="Schema" ID="d055241a-5434-4ce5-b225-774a9ea2a527" SourceId="1" SourceUrl="http://localhost:50363/Kandidat.svc?xsd=xsd1" />
+    <MetadataFile FileName="Kandidat1.xsd" MetadataType="Schema" ID="c1d0c802-7db9-4351-ae1c-d144446bc3cc" SourceId="1" SourceUrl="http://localhost:50363/Kandidat.svc?xsd=xsd2" />
+    <MetadataFile FileName="Kandidat2.xsd" MetadataType="Schema" ID="d5d69d60-3486-42be-87ba-1eb580a03aa3" SourceId="1" SourceUrl="http://localhost:50363/Kandidat.svc?xsd=xsd0" />
+    <MetadataFile FileName="Kandidat.disco" MetadataType="Disco" ID="edb69888-d2ea-457d-a47f-e47ea5d8f24d" SourceId="1" SourceUrl="http://localhost:50363/Kandidat.svc?disco" />
+    <MetadataFile FileName="Kandidat.wsdl" MetadataType="Wsdl" ID="e6823957-9967-4a93-b63b-9720c45a4505" SourceId="1" SourceUrl="http://localhost:50363/Kandidat.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
