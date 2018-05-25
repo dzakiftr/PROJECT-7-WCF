@@ -207,16 +207,17 @@
     <Content Include="Service References\KandidatService\Web_Client.KandidatService.KandidatInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\MahasiswaService\configuration91.svcinfo" />
-    <None Include="Service References\MahasiswaService\configuration.svcinfo" />
-    <None Include="Service References\MahasiswaService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\KandidatService\Kandidat.disco" />
     <None Include="Service References\KandidatService\configuration91.svcinfo" />
     <None Include="Service References\KandidatService\configuration.svcinfo" />
     <None Include="Service References\KandidatService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MahasiswaService\configuration91.svcinfo" />
+    <None Include="Service References\MahasiswaService\configuration.svcinfo" />
+    <None Include="Service References\MahasiswaService\Mahasiswa1.wsdl" />
+    <None Include="Service References\MahasiswaService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -237,8 +238,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\UserPage.cshtml" />
-    <None Include="Service References\MahasiswaService\Mahasiswa.wsdl" />
     <Content Include="Views\Shared\_ListCandidate.cshtml" />
+    <Content Include="Views\Shared\_CandidateProfile.cshtml" />
+    <Content Include="Views\Shared\_UserPageLayout.cshtml" />
+    <Content Include="Views\Shared\_CandidateVote.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

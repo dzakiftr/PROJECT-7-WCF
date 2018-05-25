@@ -1,11 +1,65 @@
-﻿
+﻿@model IEnumerable<Web_Client.Models.Candidate>
 @{
-    ViewBag.Title = "UserPage";
-    Layout = "~/Views/Shared/_MyLayout.cshtml";
-}
-@if (Session["ID"] != null)
-{
-    <h2>Welcome @Session["ID"].ToString()</h2>
+    ViewBag.Title = "Welcome - PilkaBem 2018";
+    Layout = "~/Views/Shared/_UserPageLayout.cshtml";
 }
 
+
+@if (Session["ID"] != null)
+{
+<div class="jumbotron jumbotron-fluid">
+    <div class="container" style="align-items: center; text-align:center;">
+        <br />
+        <h3 style="color: ghostwhite;">Pilih calon ketuamu!</h3>
+        <br />
+        <div class="row">
+            @foreach (var x in Model)
+            {
+                @Html.Partial("_CandidateVote", x)
+            }
+        </div>
+        <br />
+        @ViewBag.Message
+    </div>
+</div>
+<hr />
+<h3>Profil Kandidat</h3>
+   foreach (var x in Model)
+   {
+    @Html.Partial("_CandidateProfile", x)
+   }
+    <!-- Button trigger modal -->
+    <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    hit it
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="closeModal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+else
+{
+    <h2>Illegal Login attempt!</h2>
+}
+
+    
 

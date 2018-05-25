@@ -25,6 +25,7 @@ namespace Web_Client.Controllers
                 cd.Jurusan = data.jurusan;
                 cd.Visi = data.visi;
                 cd.Misi = data.misi;
+                cd.Foto = data.picture;
 
                 listCd.Add(cd);
             }

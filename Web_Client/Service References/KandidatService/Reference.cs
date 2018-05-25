@@ -38,7 +38,7 @@ namespace Web_Client.KandidatService {
         private int nomorUrutField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] pictureField;
+        private string pictureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string prodiField;
@@ -122,7 +122,7 @@ namespace Web_Client.KandidatService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] picture {
+        public string picture {
             get {
                 return this.pictureField;
             }
@@ -170,6 +170,67 @@ namespace Web_Client.KandidatService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VoteInfo", Namespace="http://schemas.datacontract.org/2004/07/WCF_Server")]
+    [System.SerializableAttribute()]
+    public partial class VoteInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NIMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Nomor_UrutField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NIM {
+            get {
+                return this.NIMField;
+            }
+            set {
+                if ((this.NIMField.Equals(value) != true)) {
+                    this.NIMField = value;
+                    this.RaisePropertyChanged("NIM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Nomor_Urut {
+            get {
+                return this.Nomor_UrutField;
+            }
+            set {
+                if ((this.Nomor_UrutField.Equals(value) != true)) {
+                    this.Nomor_UrutField = value;
+                    this.RaisePropertyChanged("Nomor_Urut");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="KandidatService.IKandidat")]
     public interface IKandidat {
@@ -179,6 +240,18 @@ namespace Web_Client.KandidatService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKandidat/ShowKandidat", ReplyAction="http://tempuri.org/IKandidat/ShowKandidatResponse")]
         System.Threading.Tasks.Task<Web_Client.KandidatService.KandidatInfo[]> ShowKandidatAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKandidat/validateUser", ReplyAction="http://tempuri.org/IKandidat/validateUserResponse")]
+        bool validateUser(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKandidat/validateUser", ReplyAction="http://tempuri.org/IKandidat/validateUserResponse")]
+        System.Threading.Tasks.Task<bool> validateUserAsync(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKandidat/doVote", ReplyAction="http://tempuri.org/IKandidat/doVoteResponse")]
+        int doVote(Web_Client.KandidatService.VoteInfo suara);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKandidat/doVote", ReplyAction="http://tempuri.org/IKandidat/doVoteResponse")]
+        System.Threading.Tasks.Task<int> doVoteAsync(Web_Client.KandidatService.VoteInfo suara);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -214,6 +287,22 @@ namespace Web_Client.KandidatService {
         
         public System.Threading.Tasks.Task<Web_Client.KandidatService.KandidatInfo[]> ShowKandidatAsync() {
             return base.Channel.ShowKandidatAsync();
+        }
+        
+        public bool validateUser(string ID) {
+            return base.Channel.validateUser(ID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> validateUserAsync(string ID) {
+            return base.Channel.validateUserAsync(ID);
+        }
+        
+        public int doVote(Web_Client.KandidatService.VoteInfo suara) {
+            return base.Channel.doVote(suara);
+        }
+        
+        public System.Threading.Tasks.Task<int> doVoteAsync(Web_Client.KandidatService.VoteInfo suara) {
+            return base.Channel.doVoteAsync(suara);
         }
     }
 }

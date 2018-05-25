@@ -13,10 +13,17 @@
       <xs:element minOccurs="0" name="misi" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nama" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nomorUrut" type="xs:int" />
-      <xs:element minOccurs="0" name="picture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="picture" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="prodi" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="visi" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="KandidatInfo" nillable="true" type="tns:KandidatInfo" />
+  <xs:complexType name="VoteInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NIM" type="xs:int" />
+      <xs:element minOccurs="0" name="Nomor_Urut" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoteInfo" nillable="true" type="tns:VoteInfo" />
 </xs:schema>

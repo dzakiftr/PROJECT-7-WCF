@@ -14,6 +14,12 @@ namespace Web_Client
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Vote",
+                url: "{controller}/{action}/{Number}",
+                defaults: new { controller = "Login", action = "doVote", Number = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

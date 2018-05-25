@@ -13,7 +13,7 @@ namespace WCF_Server
     // NOTE: In order to launch WCF Test Client for testing this service, please select Kandidat.svc or Kandidat.svc.cs at the Solution Explorer and start debugging.
     public class Kandidat : IKandidat
     {
-        string date = DateTime.Now.ToString("YYYY-MM-DD");
+        string date = DateTime.Today.ToString("YYYY-MM-DD");
 
         public List<KandidatInfo> ShowKandidat()
         {
@@ -53,10 +53,7 @@ namespace WCF_Server
                         kd.prodi = dr.GetString(3);
                         kd.visi = (dr["Visi"]).ToString();
                         kd.misi = (dr["Misi"]).ToString();
-                        if (!Convert.IsDBNull(dr["Foto"]))
-                        {
-                            kd.picture = (byte[])(dr["Foto"]);
-                        }
+                        kd.picture = (dr["Foto"]).ToString();
 
                         lisKad.Add(kd);
                     }

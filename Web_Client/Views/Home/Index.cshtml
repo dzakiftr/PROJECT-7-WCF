@@ -20,5 +20,13 @@
     </div>
 
 </div>
+<div class="container-fluid">
+    <hr />
+    <h2>Profil Kandidat</h2>
+</div>
+    @foreach (var x in Model)
+    {
+        @Html.Partial("_CandidateProfile", x)
+    }
 
 

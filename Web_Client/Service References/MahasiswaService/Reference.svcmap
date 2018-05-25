@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e03e08eb-e770-49c1-bf4b-9969aaf07ffd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b68955b6-f95a-4cd9-897e-b71a4e305639" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost:50363/Mahasiswa.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Mahasiswa.wsdl" MetadataType="Wsdl" ID="44e20bb8-1e90-4f11-bbc0-ef3469793341" SourceId="1" SourceUrl="http://localhost:50363/Mahasiswa.svc?singleWsdl" />
+    <MetadataFile FileName="Mahasiswa1.wsdl" MetadataType="Wsdl" ID="ddf762fa-a954-4bb9-be95-89a941f92c77" SourceId="1" SourceUrl="http://localhost:50363/Mahasiswa.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

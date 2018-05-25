@@ -13,16 +13,54 @@
   <wsdl:message name="IKandidat_ShowKandidat_OutputMessage">
     <wsdl:part name="parameters" element="tns:ShowKandidatResponse" />
   </wsdl:message>
+  <wsdl:message name="IKandidat_validateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:validateUser" />
+  </wsdl:message>
+  <wsdl:message name="IKandidat_validateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKandidat_doVote_InputMessage">
+    <wsdl:part name="parameters" element="tns:doVote" />
+  </wsdl:message>
+  <wsdl:message name="IKandidat_doVote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:doVoteResponse" />
+  </wsdl:message>
   <wsdl:portType name="IKandidat">
     <wsdl:operation name="ShowKandidat">
       <wsdl:input wsaw:Action="http://tempuri.org/IKandidat/ShowKandidat" message="tns:IKandidat_ShowKandidat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IKandidat/ShowKandidatResponse" message="tns:IKandidat_ShowKandidat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKandidat/validateUser" message="tns:IKandidat_validateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKandidat/validateUserResponse" message="tns:IKandidat_validateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="doVote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKandidat/doVote" message="tns:IKandidat_doVote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKandidat/doVoteResponse" message="tns:IKandidat_doVote_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IKandidat" type="tns:IKandidat">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ShowKandidat">
       <soap:operation soapAction="http://tempuri.org/IKandidat/ShowKandidat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateUser">
+      <soap:operation soapAction="http://tempuri.org/IKandidat/validateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doVote">
+      <soap:operation soapAction="http://tempuri.org/IKandidat/doVote" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

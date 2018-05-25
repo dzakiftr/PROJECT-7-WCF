@@ -1,0 +1,38 @@
+﻿@model Web_Client.Models.Candidate
+
+
+    <div class="col-sm">
+        <div class="card" style="align-items: center;">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Nomor_urut</h5>
+                <h4 class="card-title">@Model.Nama</h4>
+                <hr />
+                <!--Modal Button-->
+                <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Pilih
+                </button>
+                <!-- Modal -->
+                <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Yakin dengan pilihanmu?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Apakah kamu yakin akan memilih <strong>@Model.Nama</strong> sebagai ketua BEM?
+                            </div>
+                            <div class="modal-footer">
+                                @Html.ActionLink("Ya!", "Vote", new { Number = @Model.Nomor_urut }, new { @class = "btn btn-primary" })
+                                <button type="button" id="closeModal" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
