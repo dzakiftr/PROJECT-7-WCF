@@ -2,23 +2,37 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <img class="img-fluid float-left" src="@Model.Foto" alt="Image" />
-        <div class="row">
-            <h4>@Model.Nama  (@Model.Jurusan)</h4>
+        @if (Model.Foto != null)
+        {
+            string img64 = Convert.ToBase64String(Model.Foto);
+            string src = string.Format("data:image/jpg;base64,{0}", img64);
+            <img class="img-fluid float-md-left" src="@src" width="250" height="250" style="margin-right: 50px;"/>
+        }
+        else
+        {
+            <img class="img-fluid float-md-left" src="" width="250" height="250" />
+        }
+        @*<img src="@Url.Content(Model.Foto)" class="img-fluid float-md-left" alt="Image" width="250" height="250" style="margin-right: 20px;"/>*@
+        <br />
+        <div class="container">
+            <div class="row">
+                <h4>@Model.Nama  (@Model.Jurusan)</h4>
+            </div>
+            <div class="row">
+                <h5>Visi:</h5>
+            </div>
+            <div class="row">
+                <p>@Model.Visi</p>
+            </div>
+            <hr />
+            <div class="row">
+                <h5>Misi:</h5>
+            </div>
+            <div class="row">
+                <p>@Model.Misi</p>
+            </div>
         </div>
-        <div class="row">
-            <h5>Visi:</h5>
-        </div>
-        <div class="row">
-            <p>@Model.Visi</p>
-        </div>
-        <hr />
-        <div class="row">
-            <h5>Misi:</h5>
-        </div>
-        <div class="row">
-            <p>@Model.Misi</p>
-        </div>
+        
     </div>
 </div>
 <hr />

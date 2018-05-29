@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.IO;
+using System.Drawing;
 
 namespace WCF_Server
 {
@@ -13,7 +15,7 @@ namespace WCF_Server
     // NOTE: In order to launch WCF Test Client for testing this service, please select Kandidat.svc or Kandidat.svc.cs at the Solution Explorer and start debugging.
     public class Kandidat : IKandidat
     {
-        string date = DateTime.Today.ToString("YYYY-MM-DD");
+        string date = DateTime.Today.ToString("YYYY-MM-dd");
 
         public List<KandidatInfo> ShowKandidat()
         {
@@ -53,7 +55,12 @@ namespace WCF_Server
                         kd.prodi = dr.GetString(3);
                         kd.visi = (dr["Visi"]).ToString();
                         kd.misi = (dr["Misi"]).ToString();
-                        kd.picture = (dr["Foto"]).ToString();
+                        if (!Convert.IsDBNull((dr["Foto"])))
+                        {
+                            kd.picture = (byte[])(dr["Foto"]);
+                        }
+                        else
+                            kd.picture = null;
 
                         lisKad.Add(kd);
                     }
@@ -94,7 +101,7 @@ namespace WCF_Server
             SqlConnection sqcon = con.connection();
             int result = 0;
 
-            var d = DateTime.ParseExact(date, "YYYY-MM-DD", CultureInfo.InvariantCulture);
+            var d = DateTime.ParseExact(date, "YYYY-MM-dd", CultureInfo.InvariantCulture);
 
             using (sqcon)
             {

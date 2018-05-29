@@ -27,7 +27,9 @@ namespace Web_Client.Models
         [DisplayName("Misi: ")]
         public string Misi { get; set; }
 
-        public string Foto { get; set; }
+        //public string Foto { get; set; }
+
+        public byte[] Foto { get; set; }
 
     }
 }

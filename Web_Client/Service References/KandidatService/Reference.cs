@@ -38,7 +38,7 @@ namespace Web_Client.KandidatService {
         private int nomorUrutField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string pictureField;
+        private byte[] pictureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string prodiField;
@@ -122,7 +122,7 @@ namespace Web_Client.KandidatService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string picture {
+        public byte[] picture {
             get {
                 return this.pictureField;
             }

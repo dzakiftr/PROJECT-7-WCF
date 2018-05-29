@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Web_Client.Models;
 
 namespace Web_Client.Controllers
@@ -36,6 +37,13 @@ namespace Web_Client.Controllers
                 
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult UserPage()
         {
             if (Session["ID"] != null)
@@ -63,6 +71,7 @@ namespace Web_Client.Controllers
                 return RedirectToAction("Login");
         }
 
+        
         public ActionResult Vote(int Number)
         {
             string ID = Session["ID"].ToString();
@@ -75,18 +84,18 @@ namespace Web_Client.Controllers
                 int result = kandidat.doVote(vote);
                 if (result > 0)
                 {
-                    ViewBag.Message = "Terimakasih untuk berpartisipasi dalam PilkaBEM tahun ini!";
+                    TempData["Msg"] = "Terima kasih telah berpartisipasi dalam PilkaBEM 2018!";
                     return RedirectToAction("UserPage");
                 }
                 else
                 {
-                    ViewBag.Message = "Kesalahan dalam proses memilih!";
+                    TempData["Msg"] = "Kesalahan dalam memilih!";
                     return RedirectToAction("UserPage");
                 }
             }
             else
             {
-                ViewBag.Message = "Anda telah berpartisipasi dalam pemilihan tahun ini!";
+                TempData["Msg"] = "Anda telah memilih pada PilkaBEM tahun ini!";
                 return RedirectToAction("UserPage");
             }
         }
