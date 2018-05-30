@@ -26,6 +26,7 @@ namespace Web_Client.Controllers
                 cd.Visi = data.visi;
                 cd.Misi = data.misi;
                 cd.Foto = data.picture;
+                cd.hasil = kandidat.VoteCount(data.nomorUrut);
 
                 listCd.Add(cd);
             }

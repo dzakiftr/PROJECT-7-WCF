@@ -1,18 +1,29 @@
 ﻿@model Web_Client.Models.Candidate
 
-
     <div class="col-sm">
         <div class="card" style="align-items: center;">
             <div class="card-body">
                 <h5 class="card-title">@Model.Nomor_urut</h5>
+                @if (Model.Foto != null)
+                {
+                    string img64 = Convert.ToBase64String(Model.Foto);
+                    string src = string.Format("data:image/jpg;base64,{0}", img64);
+                    <img class="figure-img img-responsive img-rounded" src="@src" width="180" height="180" />
+                }
+                else
+                {
+                    <img class="figure-img img-responsive img-rounded" src="" width="180" height="180" />
+                }
+                @*<img class="figure-img img-responsive img-rounded" src="@Url.Content(Model.Foto)" width="180" height="180"/>*@
+                <br />
                 <h4 class="card-title">@Model.Nama</h4>
                 <hr />
                 <!--Modal Button-->
-                <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-target="#ModalCenter-@Model.Nomor_urut">
                     Pilih
                 </button>
                 <!-- Modal -->
-                <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog">
+                <div class="modal" id="ModalCenter-@Model.Nomor_urut" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -34,5 +45,6 @@
             </div>
         </div>
     </div>
+
 
 

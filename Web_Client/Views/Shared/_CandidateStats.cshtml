@@ -1,0 +1,14 @@
+﻿@model Web_Client.Models.Candidate
+<div class="row">
+        <div class="col-lg-2">
+        <h6>@Model.Nama</h6>
+    </div>
+    <div class="col-lg-8">
+        <div class="progress" style="height: 20px;">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: @Model.hasil%;" aria-valuenow="@Model.hasil" aria-valuemin="0" aria-valuemax="100">@Model.hasil%</div>
+        </div>
+    </div>
+</div>
+<br />
+
+

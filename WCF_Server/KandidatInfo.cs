@@ -12,7 +12,7 @@ namespace WCF_Server
         int NIM, NomorUrut;
         string Nama, Jurusan, Prodi;
         string Visi, Misi;
-        string pic;
+        byte[] pic;
 
         [DataMember]
         public int ID
@@ -64,7 +64,7 @@ namespace WCF_Server
         }
 
         [DataMember]
-        public string picture
+        public byte[] picture
         {
             get { return pic; }
             set { pic = value; }
