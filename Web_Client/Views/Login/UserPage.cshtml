@@ -7,25 +7,26 @@
 
 @if (Session["ID"] != null)
 {
-<div class="jumbotron jumbotron-fluid" style="min-height: 450px;">
+<div class="jumbotron jumbotron-fluid">
     <div class="container" style="align-items: center; text-align:center;">
         <br />
         <h3 style="color: ghostwhite;">Pilih calon ketuamu!</h3>
         <br />
         <div class="row">
-            @if (TempData["Msg"] != null)
+            @if(TempData["Msg"] != null)
             {
-                <h4>@TempData["Msg"]</h4>
+                <h5>@TempData["Msg"]</h5>
             }
             else
             {
-                @foreach (var x in Model)
+                foreach (var x in Model)
                 {
                     @Html.Partial("_CandidateVote", x)
                 }
-            }           
+            }
         </div>
         <br />
+        @ViewBag.Message
     </div>
 </div>
 <hr />
@@ -34,6 +35,7 @@
    {
     @Html.Partial("_CandidateProfile", x)
    }
+
 }
 else
 {

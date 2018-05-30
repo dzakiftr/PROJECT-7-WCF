@@ -10,11 +10,13 @@ namespace WCF_Server
     public class VoteInfo
     {
         int ID, NomorUrut;
+        double res;
 
         [DataMember]
         public int NIM { get; set; }
 
         [DataMember]
         public int Nomor_Urut { get; set; }
+
     }
 }

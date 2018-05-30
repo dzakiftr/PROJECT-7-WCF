@@ -19,5 +19,8 @@ namespace WCF_Server
 
         [OperationContract]
         int doVote(VoteInfo suara);
+
+        [OperationContract]
+        double VoteCount(int Nomor);
     }
 }

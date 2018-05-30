@@ -25,6 +25,12 @@
   <wsdl:message name="IKandidat_doVote_OutputMessage">
     <wsdl:part name="parameters" element="tns:doVoteResponse" />
   </wsdl:message>
+  <wsdl:message name="IKandidat_VoteCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoteCount" />
+  </wsdl:message>
+  <wsdl:message name="IKandidat_VoteCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoteCountResponse" />
+  </wsdl:message>
   <wsdl:portType name="IKandidat">
     <wsdl:operation name="ShowKandidat">
       <wsdl:input wsaw:Action="http://tempuri.org/IKandidat/ShowKandidat" message="tns:IKandidat_ShowKandidat_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="doVote">
       <wsdl:input wsaw:Action="http://tempuri.org/IKandidat/doVote" message="tns:IKandidat_doVote_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IKandidat/doVoteResponse" message="tns:IKandidat_doVote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoteCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKandidat/VoteCount" message="tns:IKandidat_VoteCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKandidat/VoteCountResponse" message="tns:IKandidat_VoteCount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IKandidat" type="tns:IKandidat">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="doVote">
       <soap:operation soapAction="http://tempuri.org/IKandidat/doVote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoteCount">
+      <soap:operation soapAction="http://tempuri.org/IKandidat/VoteCount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

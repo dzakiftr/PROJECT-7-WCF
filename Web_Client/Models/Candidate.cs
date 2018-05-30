@@ -31,5 +31,6 @@ namespace Web_Client.Models
 
         public byte[] Foto { get; set; }
 
+        public double hasil { get; set; }
     }
 }

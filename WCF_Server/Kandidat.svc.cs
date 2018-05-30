@@ -122,5 +122,36 @@ namespace WCF_Server
             }
             return result;
         }
+
+        public double VoteCount(int Nomor)
+        {
+            koneksi con = new koneksi();
+            SqlConnection sqcon = con.connection();
+            double result = 0;
+            using (sqcon)
+            {
+                sqcon.Open();
+                string com = "SELECT * from vHasil_suara where nomor_urut = @Nomor";
+                SqlCommand sqcomm = new SqlCommand(com, sqcon);
+                using (sqcomm)
+                {
+                    sqcomm.Parameters.AddWithValue("@Nomor", Nomor);
+                    SqlDataReader dr = sqcomm.ExecuteReader();
+                    dr.Read();
+                    if(dr.HasRows)
+                    {
+                        double pemilih = dr.GetInt32(1);
+                        double jSiswa = dr.GetInt32(2);
+
+                        double y = (pemilih / jSiswa) * 100;
+                        result = Convert.ToDouble(String.Format("{0:0}", y));
+                    }
+
+                }
+
+                return result;
+                    sqcon.Close();
+            }
+        }
     }
 }

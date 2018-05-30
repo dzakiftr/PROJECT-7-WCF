@@ -4,7 +4,7 @@
     ViewBag.Title = "PilkaBEM 2018";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
-<div class="jumbotron-fluid" style="align-items: center; background-color: darkblue;">
+<div class="jumbotron-fluid" style="align-items: center; background-color: darkblue; background-image:url(../../Content/arnaud-jaegers-253360-unsplash.jpg); background-size: cover;">
     <br />
     <div class="container" style="align-items: center; text-align: center;">
         <br />
@@ -19,6 +19,18 @@
         <br />
     </div>
 
+</div>
+<div class="container-fluid">
+    <hr />
+    <h2>Statistik</h2>
+</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+            @foreach (var x in Model)
+            {
+                @Html.Partial("_CandidateStats", x)
+            }
+    </div>
 </div>
 <div class="container-fluid">
     <hr />
